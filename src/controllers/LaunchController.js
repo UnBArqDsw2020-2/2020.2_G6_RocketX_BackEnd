@@ -1,3 +1,6 @@
 import LaunchModel from '../models/Launch';
 
-class LaunchController {}
+class LaunchController {
+
+    
+}
