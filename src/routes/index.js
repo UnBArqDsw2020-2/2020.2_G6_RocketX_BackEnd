@@ -1,5 +1,15 @@
-import Lancamentos from './Lancamentos.routes';
+const { Router } = require('express');
 
-export default function SetRoutes(app) {
-    app.use('/api', [Lancamentos]);
-}
+const RocketsRoutes = require('./RocketsRoutes');
+const MissionsRoutes = require('./MissionsRoutes');
+const UsersRoutes = require('./UsersRoutes');
+const LandingPadsRoutes = require('./LandingPadsRoutes');
+
+const routes = Router();
+
+routes.use('/rockets', RocketsRoutes);
+routes.use('/missions', MissionsRoutes);
+routes.use('/users', UsersRoutes);
+routes.use('/landing_pads', LandingPadsRoutes);
+
+module.exports = routes;
