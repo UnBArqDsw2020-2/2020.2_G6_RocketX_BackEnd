@@ -1,6 +1,5 @@
-import RocketModel from '../models/Rocket';
+import Rocket from '../models/Rocket';
 
 class RocketController {
 
-    
 }
