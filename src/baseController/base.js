@@ -1,11 +1,10 @@
-module.exports = class Base {
+class Base {
     constructor(model) {
         this.model = model;
     }
 
     async create(data) {
-        const res = await this.model.create(data);
-        console.log(res)
+        return await this.model.create(data);
     }
 
     async findOne(data) {
@@ -20,3 +19,5 @@ module.exports = class Base {
         return await this.model.update(data, where);
     }
 }
+
+module.exports = Base;

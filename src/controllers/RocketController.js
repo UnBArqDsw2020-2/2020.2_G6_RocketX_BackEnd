@@ -1,6 +1,6 @@
 const RocketBase = require('../baseController/RocketBase');
 
-module.exports = class RocketController {
+class RocketController {
     async create(req, res) {
         try {
             const rocketBase = new RocketBase();
@@ -15,6 +15,7 @@ module.exports = class RocketController {
                 company: "SpaceX",
 
             };
+
             const rocket = await rocketBase.create(teste);
             return res.json(rocket);
         } catch (error) {
@@ -22,3 +23,5 @@ module.exports = class RocketController {
         }
     }
 }
+
+module.exports = RocketController;
