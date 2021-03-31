@@ -1,5 +1,16 @@
-const routes = require('./routes');
 const express = require('express');
+const routes = require('./routes');
+
+(async () => {
+    const database = require('../db');
+
+    try {
+        await database.sync();
+    } catch (error) {
+        console.log(error);
+    }
+})();
+
 const app = express();
 
 app.use(express.json());
