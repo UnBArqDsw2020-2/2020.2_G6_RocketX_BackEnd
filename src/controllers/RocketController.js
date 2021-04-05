@@ -1,9 +1,14 @@
 const RocketBase = require('../baseController/RocketBase');
 
-module.exports = class RocketController {
-    async create(req, res) {
+
+// controller 
+// Decorator
+
+RocketController.prototype = new RocketBase();
+
+function RocketController () {
+    this.create = async function(req, res) {
         try {
-            const rocketBase = new RocketBase();
 
             let teste = {
                 rocket_name: "Falcon 9",
@@ -15,10 +20,13 @@ module.exports = class RocketController {
                 company: "SpaceX",
 
             };
-            const rocket = await rocketBase.create(teste);
+            const rocket = await RocketController.prototype.create(teste);
             return res.json(rocket);
         } catch (error) {
             return res.status(400).json({ message: error.message || error });
         }
     }
 }
+
+
+module.exports = RocketController;

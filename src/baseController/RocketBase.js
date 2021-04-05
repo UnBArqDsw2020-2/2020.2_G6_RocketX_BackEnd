@@ -1,14 +1,13 @@
 const Base = require('./Base');
 const RocketModel = require('../models/Rocket');
 
-module.exports = class RocketBase extends Base {
-  constructor() {
-    super();
-  }
+// Decorator
 
-  async create(newRocket) {
+RocketBase.prototype = new Base(RocketModel);
+
+function RocketBase (){
+  this.create = async function(newRocket) {
     try {
-      super.model = new RocketModel();
       let rocket = {};
 
       rocket.rocket_name = newRocket.rocket_name;
@@ -19,13 +18,15 @@ module.exports = class RocketBase extends Base {
       rocket.country = newRocket.country;
       rocket.company = newRocket.company;
 
-      const asd = await super.create(newRocket);
-      console.log(asd)
+      const createdRocket = await RocketBase.prototype.create(rocket);
+      // console.log(createdRocket)
 
-      return Rocket;
+      return createdRocket;
     } catch (error) {
       throw { status: 400, message: error.errors[0].message };
     }
   }
-
 }
+
+
+module.exports = RocketBase;

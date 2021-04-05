@@ -1,22 +1,58 @@
-module.exports = class Base {
-    constructor(model) {
-        this.model = model;
+// Decorator
+
+function Base (model) {
+    //atributes
+    this.model = model;
+
+    //methods
+    this.create = async function(data) {
+        return await this.model.create(data);
     }
 
-    async create(data) {
-        const res = await this.model.create(data);
-        console.log(res)
-    }
-
-    async findOne(data) {
+    this.findOne = async function(data) {
         return await this.model.findOne(data);
     }
 
-    async findAll(data) {
+    this.findAll = async function(data) {
         return await this.model.findAll(data);
     }
 
-    async update(data, where) {
+    this.update = async function(data, where) {
         return await this.model.update(data, where);
     }
 }
+
+module.exports = Base;
+
+
+
+/*
+
+// template method example
+(function a(){
+    this.login = ()=>{
+        this.pegarCadastro();
+        this.autenticar();
+        this.prosseguir();
+    };
+    this.pegarCadastro = ()=>{};
+    this.autenticar = function (){};
+    this.prosseguir = ()=>{};
+})()
+
+(function b(){
+    this.pegarCadastro = () => {
+        //codigo do cadastro
+    }
+    this.autenticar = () => {
+        //autenticar usuario
+    }
+    this.prosseguir = () => {
+        //prosseguir com o usuario logado
+    }
+})()
+
+    c = new b;
+    c.login();
+
+*/
