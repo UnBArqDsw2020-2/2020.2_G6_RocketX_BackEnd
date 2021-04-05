@@ -10,13 +10,7 @@ function RocketBase (){
     try {
       let rocket = {};
 
-      rocket.rocket_name = newRocket.rocket_name;
-      rocket.description = newRocket.description;
-      rocket.cost_per_launch = newRocket.cost_per_launch;
-      rocket.height = newRocket.height;
-      rocket.mass = newRocket.mass;
-      rocket.country = newRocket.country;
-      rocket.company = newRocket.company;
+      let rocket = await super.create(newRocket);
 
       const createdRocket = await RocketBase.prototype.create(rocket);
       // console.log(createdRocket)

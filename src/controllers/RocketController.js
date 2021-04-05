@@ -28,5 +28,4 @@ function RocketController () {
     }
 }
 
-
 module.exports = RocketController;

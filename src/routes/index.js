@@ -7,6 +7,8 @@ const LandingPadsRoutes = require('./LandingPadsRoutes');
 
 const routes = Router();
 
+// Facade
+
 routes.use('/rockets', RocketsRoutes);
 routes.use('/missions', MissionsRoutes);
 routes.use('/users', UsersRoutes);
