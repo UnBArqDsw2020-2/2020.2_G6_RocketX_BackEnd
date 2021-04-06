@@ -29,7 +29,8 @@ module.exports = Base;
 /*
 
 // template method example
-(function a(){
+
+function a(){
     this.login = ()=>{
         this.pegarCadastro();
         this.autenticar();
@@ -38,9 +39,9 @@ module.exports = Base;
     this.pegarCadastro = ()=>{};
     this.autenticar = function (){};
     this.prosseguir = ()=>{};
-})()
+}
 
-(function b(){
+function admin(){
     this.pegarCadastro = () => {
         //codigo do cadastro
     }
@@ -50,9 +51,37 @@ module.exports = Base;
     this.prosseguir = () => {
         //prosseguir com o usuario logado
     }
-})()
+}
+
+function user(){
+    this.pegarCadastro = () => {
+        //codigo do cadastro
+    }
+    this.autenticar = () => {
+        //autenticar usuario
+    }
+    this.prosseguir = () => {
+        //prosseguir com o usuario logado
+    }
+}
 
     c = new b;
     c.login();
+
+// iterator patten example
+
+a = { 
+    a : 'a',
+    b : 'b',
+    c : 'c',
+    d : 'x',
+    findElement = (element) => {
+        this.map((o, key) => {
+            return o[key] === element;
+        })
+    }
+}
+
+a.findElement('x');
 
 */

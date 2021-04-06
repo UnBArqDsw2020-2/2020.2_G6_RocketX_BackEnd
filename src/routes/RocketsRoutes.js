@@ -1,10 +1,9 @@
 const { Router } = require('express');
-const RocketController = require('../controllers/RocketController');
 const routes = Router();
-
+const ControllerCreator = require('./ControllerCreator');
 // singleton
 
-const rocketController = new RocketController();
+const rocketController = ControllerCreator.createRocket();
 
 routes.get('/', rocketController.create);
 

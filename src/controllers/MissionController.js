@@ -1,6 +1,10 @@
 import MissionModel from '../models/Mission';
 
-class MissionController {
+MissionController.prototype = MissionModel;
 
+function MissionController() {
+    
     
 }
+
+module.exports = MissionController;
