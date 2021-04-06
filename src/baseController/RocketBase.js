@@ -8,14 +8,19 @@ RocketBase.prototype = new Base(RocketModel);
 function RocketBase (){
   this.create = async function(newRocket) {
     try {
-      let rocket = {};
-
-      let rocket = await super.create(newRocket);
-
-      const createdRocket = await RocketBase.prototype.create(rocket);
-      // console.log(createdRocket)
+      const createdRocket = await RocketBase.prototype.create(newRocket);
 
       return createdRocket;
+    } catch (error) {
+      throw { status: 400, message: error.errors[0].message };
+    }
+  }
+
+  this.listAll = async function() {
+    try {
+      let rockets = await RocketBase.prototype.listAll();
+
+      return rockets;
     } catch (error) {
       throw { status: 400, message: error.errors[0].message };
     }

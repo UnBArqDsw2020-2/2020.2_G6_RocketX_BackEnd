@@ -20,6 +20,10 @@ function Base (model) {
     this.update = async function(data, where) {
         return await this.model.update(data, where);
     }
+
+    this.listAll = async function() {
+        return await this.model.findAll();
+    }
 }
 
 module.exports = Base;

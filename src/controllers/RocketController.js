@@ -26,6 +26,15 @@ function RocketController () {
             return res.status(400).json({ message: error.message || error });
         }
     }
+
+    this.listAll = async function(req, res) {
+        try {
+            const rockets = await RocketController.prototype.listAll();
+            return res.json(rockets);
+        } catch (error) {
+            return res.status(400).json({ message: error.message || error });
+        }
+    }
 }
 
 module.exports = RocketController;

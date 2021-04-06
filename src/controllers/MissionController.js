@@ -1,4 +1,4 @@
-import MissionModel from '../models/Mission';
+const MissionModel = require('../models/Mission');
 
 MissionController.prototype = MissionModel;
 

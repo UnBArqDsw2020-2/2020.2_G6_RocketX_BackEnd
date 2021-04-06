@@ -3,8 +3,12 @@ const routes = Router();
 const ControllerCreator = require('./ControllerCreator');
 // singleton
 
-const rocketController = ControllerCreator.createRocket();
+const creator = new ControllerCreator();
 
-routes.get('/', rocketController.create);
+const rocketController = creator.createRocket();
+
+routes.post('/', rocketController.create);
+
+routes.get('/', rocketController.listAll);
 
 module.exports = routes;
