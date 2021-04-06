@@ -3,9 +3,8 @@ const routes = Router();
 const ControllerCreator = require('./ControllerCreator');
 // singleton
 
-const creator = new ControllerCreator();
 
-const rocketController = creator.createRocket();
+const rocketController = ControllerCreator.createRocket();
 
 routes.post('/', rocketController.create);
 
